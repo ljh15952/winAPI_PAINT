@@ -1,9 +1,9 @@
 #include "Button.h"
 
-void Button::Draw(HDC hdc)
+void Button::Draw()
 {
-	Rectangle(hdc, _position.x, _position.y, _position.x + _size.x, _position.y + _size.y);
-	TextOutA(hdc, _position.x + 2, _position.y + 2, _text.c_str(), strlen(_text.c_str()));
+	Graphics::GetInstance()->drawRectangle(_position, _size);
+	Graphics::GetInstance()->drawText(_text,_position);
 }
 
 void Button::setBounds(Vector2 pos, Vector2 size)

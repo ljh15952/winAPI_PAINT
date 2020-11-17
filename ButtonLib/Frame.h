@@ -1,6 +1,7 @@
 #pragma once
 #include "Misc.h"
 #include "Button.h"
+#include "Graphics.h"
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 class Frame {

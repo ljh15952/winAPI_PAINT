@@ -80,6 +80,7 @@ Frame::Frame(std::wstring title, int width, int height) {
 
 
 void Frame::run() {
+	Graphics::GetInstance()->setGraphics(hDC_);
 	Init();
 
 	HACCEL hAccelTable = LoadAccelerators(hInst_, MAKEINTRESOURCE(IDI_APPLICATION));
@@ -98,10 +99,22 @@ void Frame::run() {
 bool Frame::eventHandler(MyEvent e)
 {
 	//버튼을 눌렀으면 true반환
-	if (e.isMouseUp())
+	if (e.isMouseDown())
 	{
 		if (_clickBt = findClickBt(e.getMousePos()))
+		{
+			Graphics::GetInstance()->setPenColor(Graphics::RED);
+			_clickBt->Draw();
+		}
+	}
+	else if (e.isMouseUp())
+	{
+		if (_clickBt)
+		{
+			Graphics::GetInstance()->setPenColor(Graphics::BLACK);
+			_clickBt->Draw();
 			return true;
+		}
 	}
 	return false;
 }
@@ -109,7 +122,7 @@ bool Frame::eventHandler(MyEvent e)
 void Frame::repaint() {
 	//모든 버튼들 다시 그려줌
 	for (auto it : _btns)
-		it->Draw(hDC_);
+		it->Draw();
 }
 
 void Frame::addButton(Button* bt)

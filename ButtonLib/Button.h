@@ -1,6 +1,6 @@
 #pragma once
 #include "Misc.h"
-
+#include "Graphics.h"
 class Button
 {
 private:
@@ -10,7 +10,7 @@ private:
 public:
 	Button() {};
 	Button(std::string text) : _text(text) {};
-	void Draw(HDC hdc);
+	void Draw();
 	void setBounds(Vector2 pos, Vector2 size);
 	bool isClick(Vector2 v);
 };

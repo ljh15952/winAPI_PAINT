@@ -1,9 +1,4 @@
-﻿  Button.cpp
-  Frame.cpp
-C:\Users\ljh15\source\repos\winPaint\ButtonLib\Frame.cpp(85,48): warning C4302: '형식 캐스트': 'LPWSTR'에서 'WORD'(으)로 잘립니다.
-  Graphics.cpp
-  Misc.cpp
-  Singleton.cpp
-  코드를 생성하고 있습니다...
+﻿  Frame.cpp
+C:\Users\ljh15\source\repos\winPaint\ButtonLib\Frame.cpp(86,48): warning C4302: '형식 캐스트': 'LPWSTR'에서 'WORD'(으)로 잘립니다.
 C:\Users\ljh15\source\repos\winPaint\ButtonLib\Frame.cpp(44): warning C4715: 'WndProc': 모든 제어 경로에서 값을 반환하지는 않습니다.
   ButtonLib.vcxproj -> C:\Users\ljh15\source\repos\winPaint\Debug\ButtonLib.lib

@@ -4,15 +4,15 @@ void PainterFrame::Init()
 {
 	b1 = new Button("Button_1");
 	b1->setBounds(Vector2(100, 70), Vector2(100, 50));
-	b1->Draw(hDC_);
+	b1->Draw();
 
 	b2 = new Button("Button_2");
 	b2->setBounds(Vector2(250, 70), Vector2(100, 50));
-	b2->Draw(hDC_);
+	b2->Draw();
 
 	b3 = new Button("Button_3");
 	b3->setBounds(Vector2(400, 70), Vector2(100, 50));
-	b3->Draw(hDC_);
+	b3->Draw();
 
 	addButton(b1);
 	addButton(b2);
