@@ -11,7 +11,6 @@ protected:
 	HWND hWnd_;
 	HDC hDC_;
 
-	Button* _clickBt;
 public:
 	Frame(std::wstring, int, int);
 	virtual void run();
@@ -19,10 +18,12 @@ public:
 	virtual bool eventHandler(MyEvent e);
 	virtual void repaint();
 	virtual void Init() = 0;
+	virtual void buttonCallback(Button * b) = 0;
 
 	void addButton(Button* bt);
 	void invalidate();
 	Button* findClickBt(Vector2 pos);
 private:
 	list<Button*> _btns;
+	Button* _clickBt;
 };

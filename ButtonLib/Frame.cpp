@@ -75,6 +75,7 @@ Frame::Frame(std::wstring title, int width, int height) {
 	UpdateWindow(hWnd_);
 	SetFocus(hWnd_);
 	hDC_ = GetDC(hWnd_);
+	_clickBt = nullptr;
 }
 
 
@@ -103,8 +104,10 @@ bool Frame::eventHandler(MyEvent e)
 	{
 		if (_clickBt = findClickBt(e.getMousePos()))
 		{
+			buttonCallback(_clickBt);
 			Graphics::GetInstance()->setPenColor(Graphics::RED);
 			_clickBt->Draw();
+			return true;
 		}
 	}
 	else if (e.isMouseUp())
@@ -124,6 +127,7 @@ void Frame::repaint() {
 	for (auto it : _btns)
 		it->Draw();
 }
+
 
 void Frame::addButton(Button* bt)
 {

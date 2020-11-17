@@ -140,11 +140,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Figure.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PainterFrame.cpp" />
+    <ClCompile Include="Rect.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Figure.h" />
     <ClInclude Include="PainterFrame.h" />
+    <ClInclude Include="Rect.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ButtonLib\ButtonLib.vcxproj">
