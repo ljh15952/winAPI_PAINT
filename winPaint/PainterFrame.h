@@ -1,9 +1,12 @@
 #pragma once
 #include "Frame.h"
 #include "Rect.h"
-
+#include "Circle.h"
+#include "Line.h"
 enum class Bt_state {
 	rect,
+	circle,
+	line,
 	null
 };
 
@@ -27,8 +30,8 @@ private:
 
 	// 응용 버튼들
 	Button* rectBt;
-	Button* b2;
-	Button* b3;
+	Button* circleBt;
+	Button* lineBt;
 	// 응용 변수
 	list<Figure*> _figures;
 	Figure* _clickFigure;

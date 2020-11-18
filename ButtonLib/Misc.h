@@ -6,8 +6,8 @@ using namespace std;
 class Vector2 {
 public:
 	Vector2() : x(0), y(0) {};
-	Vector2(int _x, int _y) : x(_x), y(_y) {};
-	int x, y;
+	Vector2(float _x, float _y) : x(_x), y(_y) {};
+	float x, y;
 	void operator -= (Vector2 v);
 	void operator += (Vector2 v);
 	Vector2 operator + (Vector2 v);

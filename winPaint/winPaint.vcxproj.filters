@@ -19,10 +19,16 @@
     <ClCompile Include="Figure.cpp">
       <Filter>Figure</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp" />
     <ClCompile Include="Rect.cpp">
       <Filter>Figure</Filter>
     </ClCompile>
+    <ClCompile Include="Circle.cpp">
+      <Filter>Figure</Filter>
+    </ClCompile>
+    <ClCompile Include="Line.cpp">
+      <Filter>Figure</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PainterFrame.h">
@@ -32,6 +38,12 @@
       <Filter>Figure</Filter>
     </ClInclude>
     <ClInclude Include="Rect.h">
+      <Filter>Figure</Filter>
+    </ClInclude>
+    <ClInclude Include="Circle.h">
+      <Filter>Figure</Filter>
+    </ClInclude>
+    <ClInclude Include="Line.h">
       <Filter>Figure</Filter>
     </ClInclude>
   </ItemGroup>

@@ -8,17 +8,17 @@ void PainterFrame::Init()
 	rectBt->setBounds(Vector2(10, 30), Vector2(100, 25));
 	rectBt->Draw();
 
-	b2 = new Button("Button_2");
-	b2->setBounds(Vector2(120, 30), Vector2(100, 25));
-	b2->Draw();
+	circleBt = new Button("¿ø");
+	circleBt->setBounds(Vector2(120, 30), Vector2(100, 25));
+	circleBt->Draw();
 
-	b3 = new Button("Button_3");
-	b3->setBounds(Vector2(230, 30), Vector2(100, 25));
-	b3->Draw();
+	lineBt = new Button("¼±");
+	lineBt->setBounds(Vector2(230, 30), Vector2(100, 25));
+	lineBt->Draw();
 
 	addButton(rectBt);
-	addButton(b2);
-	addButton(b3);
+	addButton(circleBt);
+	addButton(lineBt);
 }
 
 
@@ -75,6 +75,14 @@ Figure * PainterFrame::MakeFigure()
 		fg = new Rect(_startPos, _endPos);
 		_figures.push_back(fg);
 		break;
+	case Bt_state::circle:
+		fg = new Circle(_startPos, _endPos);
+		_figures.push_back(fg);
+		break;
+	case Bt_state::line:
+		fg = new Line(_startPos, _endPos);
+		_figures.push_back(fg);
+		break;
 	}
 	return fg;
 }
@@ -97,6 +105,14 @@ void PainterFrame::buttonCallback(Button* b)
 	if (b == rectBt)
 	{
 		bt_state = Bt_state::rect;
+	}
+	else if (b == circleBt)
+	{
+		bt_state = Bt_state::circle;
+	}
+	else if (b == lineBt)
+	{
+		bt_state = Bt_state::line;
 	}
 }
 

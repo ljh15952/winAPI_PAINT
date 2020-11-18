@@ -2,6 +2,7 @@
 
 void Button::Draw()
 {
+	Graphics::GetInstance()->setTransparent(true);
 	Graphics::GetInstance()->drawRectangle(_position, _size);
 	Graphics::GetInstance()->drawText(_text,_position);
 }
