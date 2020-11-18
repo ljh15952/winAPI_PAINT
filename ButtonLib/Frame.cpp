@@ -124,6 +124,7 @@ bool Frame::eventHandler(MyEvent e)
 
 void Frame::repaint() {
 	//모든 버튼들 다시 그려줌
+	Graphics::GetInstance()->setPenColor(Graphics::BLACK);
 	for (auto it : _btns)
 		it->Draw();
 }

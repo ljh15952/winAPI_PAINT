@@ -142,6 +142,7 @@
   <ItemGroup>
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="Figure.cpp" />
+    <ClCompile Include="Group.cpp" />
     <ClCompile Include="Line.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PainterFrame.cpp" />
@@ -150,6 +151,7 @@
   <ItemGroup>
     <ClInclude Include="Circle.h" />
     <ClInclude Include="Figure.h" />
+    <ClInclude Include="Group.h" />
     <ClInclude Include="Line.h" />
     <ClInclude Include="PainterFrame.h" />
     <ClInclude Include="Rect.h" />

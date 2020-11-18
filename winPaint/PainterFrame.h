@@ -3,10 +3,13 @@
 #include "Rect.h"
 #include "Circle.h"
 #include "Line.h"
+#include "Group.h"
+
 enum class Bt_state {
 	rect,
 	circle,
 	line,
+	group,
 	null
 };
 
@@ -22,6 +25,9 @@ public:
 
 	Figure* MakeFigure();
 	Figure* FindFigure();
+
+	Group * setGroup(Group* g);
+	Group* setGroupMember(Group* g);
 private:
 	Bt_state bt_state;
 
@@ -32,9 +38,13 @@ private:
 	Button* rectBt;
 	Button* circleBt;
 	Button* lineBt;
+	Button* groupBt;
+
 	// 응용 변수
 	list<Figure*> _figures;
 	Figure* _clickFigure;
+
+	//list<Figure*> _remove_figures;
 
 };
 

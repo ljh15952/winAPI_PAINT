@@ -12,6 +12,8 @@ public:
 	void operator += (Vector2 v);
 	Vector2 operator + (Vector2 v);
 	Vector2 operator - (Vector2 v);
+	Vector2 operator + (int v);
+	Vector2 operator - (int v);
 };
 
 class MyEvent {

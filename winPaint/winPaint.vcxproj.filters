@@ -11,6 +11,9 @@
     <Filter Include="Figure">
       <UniqueIdentifier>{b9a15f72-0aab-45d6-9013-9cf32d95dfc6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Group">
+      <UniqueIdentifier>{37242739-fb67-468a-8de4-23cb8f122503}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PainterFrame.cpp">
@@ -29,6 +32,9 @@
       <Filter>Figure</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Group.cpp">
+      <Filter>Group</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PainterFrame.h">
@@ -45,6 +51,9 @@
     </ClInclude>
     <ClInclude Include="Line.h">
       <Filter>Figure</Filter>
+    </ClInclude>
+    <ClInclude Include="Group.h">
+      <Filter>Group</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

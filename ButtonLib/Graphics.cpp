@@ -19,7 +19,7 @@ void Graphics::drawCircle(Vector2 pos, int size)
 void Graphics::drawLine(Vector2 strat, Vector2 end)
 {
 	MoveToEx(_hdc, strat.x, strat.y, NULL);
-	LineTo(_hdc, end.x, end.y);
+	LineTo(_hdc, strat.x + end.x, strat.y + end.y);
 }
 void Graphics::drawText(std::string t, Vector2 pos)
 {

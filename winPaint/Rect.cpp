@@ -8,8 +8,11 @@ Rect::Rect(Vector2 s, Vector2 e)
 
 void Rect::Draw()
 {
-	Graphics::GetInstance()->setPenColor(Graphics::RED);
+	Graphics::GetInstance()->setPenColor(_color);
 	Graphics::GetInstance()->setTransparent(true);
+
+	if (_parent)
+		_position = _parent->getPosition() + _distance;
 	Graphics::GetInstance()->drawRectangle(_position, _size);
 }
 

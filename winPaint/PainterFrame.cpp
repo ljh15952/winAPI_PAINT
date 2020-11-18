@@ -16,9 +16,14 @@ void PainterFrame::Init()
 	lineBt->setBounds(Vector2(230, 30), Vector2(100, 25));
 	lineBt->Draw();
 
+	groupBt = new Button("±×·ìÈ­");
+	groupBt->setBounds(Vector2(340, 30), Vector2(100, 25));
+	groupBt->Draw();
+
 	addButton(rectBt);
 	addButton(circleBt);
 	addButton(lineBt);
+	addButton(groupBt);
 }
 
 
@@ -40,6 +45,7 @@ bool PainterFrame::eventHandler(MyEvent e)
 		_endPos = e.getMousePos();
 		if (_clickFigure)
 		{
+			OutputDebugString(L"QWEQEW\n");
 			_clickFigure->addPosition(_endPos - _startPos);
 			invalidate();
 		}
@@ -55,7 +61,6 @@ bool PainterFrame::eventHandler(MyEvent e)
 		_endPos = e.getMousePos();
 
 		Figure * nowFigure = MakeFigure();
-		
 
 		if (nowFigure)
 		{
@@ -73,15 +78,22 @@ Figure * PainterFrame::MakeFigure()
 	{
 	case Bt_state::rect:
 		fg = new Rect(_startPos, _endPos);
+		fg->setColor(Graphics::RED);
 		_figures.push_back(fg);
 		break;
 	case Bt_state::circle:
 		fg = new Circle(_startPos, _endPos);
+		fg->setColor(Graphics::GREEN);
+		fg->setFillColor(Graphics::YELLOW);
 		_figures.push_back(fg);
 		break;
 	case Bt_state::line:
 		fg = new Line(_startPos, _endPos);
+		fg->setColor(Graphics::BLUE);
 		_figures.push_back(fg);
+		break;
+	case Bt_state::group:
+		fg = setGroup(setGroupMember(new Group(_startPos,_endPos)));
 		break;
 	}
 	return fg;
@@ -99,6 +111,25 @@ Figure* PainterFrame::FindFigure()
 	return nullptr;
 }
 
+Group * PainterFrame::setGroup(Group* g)
+{
+	if (g->getMemberSize() <= 0)
+		return nullptr;
+
+	g->setColor(Graphics::GRAY);
+	g->setBound();
+	g->setChildPos();
+	_figures.push_back(g);
+	return g;
+}
+
+Group* PainterFrame::setGroupMember(Group* g)
+{
+	for (auto it : _figures)
+		g->isInside(it);
+	return g;
+}
+
 
 void PainterFrame::buttonCallback(Button* b)
 {
@@ -113,6 +144,10 @@ void PainterFrame::buttonCallback(Button* b)
 	else if (b == lineBt)
 	{
 		bt_state = Bt_state::line;
+	}
+	else if (b == groupBt)
+	{
+		bt_state = Bt_state::group;
 	}
 }
 

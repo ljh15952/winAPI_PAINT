@@ -10,9 +10,13 @@ Circle::Circle(Vector2 v1, Vector2 v2)
 
 void Circle::Draw()
 {
-	Graphics::GetInstance()->setPenColor(Graphics::GREEN);
+	Graphics::GetInstance()->setPenColor(_color);
 	Graphics::GetInstance()->setTransparent(false);
-	Graphics::GetInstance()->setFillColor(Graphics::YELLOW);
+	Graphics::GetInstance()->setFillColor(_fillcolor);
+
+	if (_parent)
+		_position = _parent->getPosition() + _distance;
+
 	Graphics::GetInstance()->drawCircle(_position, _size.x);
 }
 
