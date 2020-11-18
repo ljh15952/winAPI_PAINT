@@ -16,6 +16,9 @@ public:
 	bool eventHandler(MyEvent e) override;
 	void repaint() override;
 	void buttonCallback(Button* b) override;
+
+	Figure* MakeFigure();
+	Figure* FindFigure();
 private:
 	Bt_state bt_state;
 
@@ -28,6 +31,7 @@ private:
 	Button* b3;
 	// 응용 변수
 	list<Figure*> _figures;
+	Figure* _clickFigure;
 
 };
 

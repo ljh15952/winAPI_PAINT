@@ -31,10 +31,18 @@ bool PainterFrame::eventHandler(MyEvent e)
 	if (e.isMouseDown() && e.isCtrlDown())
 	{
 		//move start
+		_startPos = e.getMousePos();
+		_clickFigure = FindFigure();
 	}
 	else if (e.isMouseUp() && e.isCtrlDown())
 	{
 		//move end
+		_endPos = e.getMousePos();
+		if (_clickFigure)
+		{
+			_clickFigure->addPosition(_endPos - _startPos);
+			invalidate();
+		}
 	}
 	else if (e.isMouseDown())
 	{
@@ -46,19 +54,43 @@ bool PainterFrame::eventHandler(MyEvent e)
 		//paint end
 		_endPos = e.getMousePos();
 
-		if (bt_state == Bt_state::rect)
-		{
-			_figures.push_back(new Rect(_startPos, _endPos));
-		}
+		Figure * nowFigure = MakeFigure();
+		
 
-		if (_figures.size() > 0)
+		if (nowFigure)
 		{
-			_figures.back()->Draw();
+			nowFigure->Draw();
 		}
 	}
 
 	return false;
 }
+
+Figure * PainterFrame::MakeFigure()
+{
+	Figure* fg = nullptr;
+	switch (bt_state)
+	{
+	case Bt_state::rect:
+		fg = new Rect(_startPos, _endPos);
+		_figures.push_back(fg);
+		break;
+	}
+	return fg;
+}
+
+Figure* PainterFrame::FindFigure()
+{
+	for (auto it = _figures.rbegin(); it != _figures.rend(); it++)
+	{
+		if ((*it)->isClick(_startPos))
+		{
+			return (*it);
+		}
+	}
+	return nullptr;
+}
+
 
 void PainterFrame::buttonCallback(Button* b)
 {
@@ -69,9 +101,11 @@ void PainterFrame::buttonCallback(Button* b)
 }
 
 
+
 void PainterFrame::repaint()
 {
-	Frame::repaint(); //버튼들 repaint
+	//버튼들 repaint
+	Frame::repaint(); 
 	//응용 객체들 repaint
 	for (auto it : _figures)
 	{
