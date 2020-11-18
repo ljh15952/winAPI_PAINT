@@ -4,7 +4,7 @@
 #include "Circle.h"
 #include "Line.h"
 #include "Group.h"
-
+#include "Toolbar.h"
 enum class Bt_state {
 	rect,
 	circle,

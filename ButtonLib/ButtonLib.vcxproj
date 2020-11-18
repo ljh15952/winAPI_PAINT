@@ -144,6 +144,7 @@
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="Misc.cpp" />
     <ClCompile Include="Singleton.cpp" />
+    <ClCompile Include="Toolbar.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h" />
@@ -151,6 +152,7 @@
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="Misc.h" />
     <ClInclude Include="Singleton.h" />
+    <ClInclude Include="Toolbar.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

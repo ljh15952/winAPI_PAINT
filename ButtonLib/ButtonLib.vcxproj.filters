@@ -20,6 +20,9 @@
     <Filter Include="Singleton">
       <UniqueIdentifier>{7adbe0b2-ac15-4d02-a063-cc4b37339412}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Toolbar">
+      <UniqueIdentifier>{052d8cb0-9a21-4e71-9277-f554d8ac1d0b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h">
@@ -37,6 +40,9 @@
     <ClInclude Include="Singleton.h">
       <Filter>Singleton</Filter>
     </ClInclude>
+    <ClInclude Include="Toolbar.h">
+      <Filter>Toolbar</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Button.cpp">
@@ -53,6 +59,9 @@
     </ClCompile>
     <ClCompile Include="Singleton.cpp">
       <Filter>Singleton</Filter>
+    </ClCompile>
+    <ClCompile Include="Toolbar.cpp">
+      <Filter>Toolbar</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

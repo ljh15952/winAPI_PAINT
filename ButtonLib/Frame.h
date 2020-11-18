@@ -2,6 +2,7 @@
 #include "Misc.h"
 #include "Button.h"
 #include "Graphics.h"
+#include "Toolbar.h"
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 class Frame {
@@ -20,10 +21,7 @@ public:
 	virtual void Init() = 0;
 	virtual void buttonCallback(Button * b) = 0;
 
-	void addButton(Button* bt);
 	void invalidate();
-	Button* findClickBt(Vector2 pos);
 private:
-	list<Button*> _btns;
 	Button* _clickBt;
 };
