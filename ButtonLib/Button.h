@@ -1,17 +1,12 @@
 #pragma once
-#include "Misc.h"
-#include "Graphics.h"
-class Button
+#include "ButtonComponent.h"
+class Button : public ButtonComponent
 {
-private:
-	std::string _text;
-	Vector2 _position;
-	Vector2 _size; //width,height
 public:
 	Button() {};
-	Button(std::string text) : _text(text) {};
-	void Draw();
-	void setBounds(Vector2 pos, Vector2 size);
-	bool isClick(Vector2 v);
+	Button(std::string text) { _text = text; };
+	void Draw() override;
+	void setBounds(Vector2 pos, Vector2 size) override;
+	bool isClick(Vector2 v) override;
 };
 

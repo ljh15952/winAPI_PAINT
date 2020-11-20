@@ -20,10 +20,10 @@ void PainterFrame::Init()
 	groupBt->setBounds(Vector2(340, 30), Vector2(100, 25));
 	groupBt->Draw();
 
-	Toolbar::GetInstance()->addComponent(rectBt);
-	Toolbar::GetInstance()->addComponent(circleBt);
-	Toolbar::GetInstance()->addComponent(lineBt);
-	Toolbar::GetInstance()->addComponent(groupBt);
+	_toolbar->addComponent(rectBt);
+	_toolbar->addComponent(circleBt);
+	_toolbar->addComponent(lineBt);
+	_toolbar->addComponent(groupBt);
 }
 
 

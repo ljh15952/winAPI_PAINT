@@ -22,6 +22,7 @@ public:
 	virtual void buttonCallback(Button * b) = 0;
 
 	void invalidate();
+	Toolbar* _toolbar;
 private:
 	Button* _clickBt;
 };

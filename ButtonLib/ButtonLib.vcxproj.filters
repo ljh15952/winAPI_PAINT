@@ -23,6 +23,12 @@
     <Filter Include="Toolbar">
       <UniqueIdentifier>{052d8cb0-9a21-4e71-9277-f554d8ac1d0b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Component">
+      <UniqueIdentifier>{ed0de0fd-b8a7-4667-a994-b4c0c64c4aa3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Container">
+      <UniqueIdentifier>{c165b408-f60f-449a-acd0-ebc659ba8a8d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h">
@@ -43,6 +49,12 @@
     <ClInclude Include="Toolbar.h">
       <Filter>Toolbar</Filter>
     </ClInclude>
+    <ClInclude Include="ButtonComponent.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Container.h">
+      <Filter>Container</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Button.cpp">
@@ -62,6 +74,12 @@
     </ClCompile>
     <ClCompile Include="Toolbar.cpp">
       <Filter>Toolbar</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonComponent.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Container.cpp">
+      <Filter>Container</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

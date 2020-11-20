@@ -1,8 +1,4 @@
-﻿  Circle.cpp
-C:\Users\ljh15\source\repos\winPaint\winPaint\Circle.cpp(20,54): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ljh15\source\repos\winPaint\winPaint\Circle.cpp(25,10): warning C4244: '초기화 중': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ljh15\source\repos\winPaint\winPaint\Circle.cpp(26,10): warning C4244: '초기화 중': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  PainterFrame.cpp
+﻿  PainterFrame.cpp
   main.cpp
   코드를 생성하고 있습니다...
   winPaint.vcxproj -> C:\Users\ljh15\source\repos\winPaint\Debug\winPaint.exe

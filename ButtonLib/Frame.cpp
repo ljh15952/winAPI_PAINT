@@ -76,6 +76,7 @@ Frame::Frame(std::wstring title, int width, int height) {
 	SetFocus(hWnd_);
 	hDC_ = GetDC(hWnd_);
 	_clickBt = nullptr;
+	_toolbar = new Toolbar;
 }
 
 
@@ -102,7 +103,7 @@ bool Frame::eventHandler(MyEvent e)
 	//버튼을 눌렀으면 true반환
 	if (e.isMouseDown())
 	{
-		if (_clickBt = Toolbar::GetInstance()->findClickBt(e.getMousePos()))
+		if (_clickBt = _toolbar->findClickBt(e.getMousePos()))
 		{
 			buttonCallback(_clickBt);
 			Graphics::GetInstance()->setPenColor(Graphics::RED);
@@ -125,7 +126,7 @@ bool Frame::eventHandler(MyEvent e)
 void Frame::repaint() {
 	//모든 버튼들 다시 그려줌
 	Graphics::GetInstance()->setPenColor(Graphics::BLACK);
-	Toolbar::GetInstance()->repaint();
+	_toolbar->repaint();
 }
 
 void Frame::invalidate()
