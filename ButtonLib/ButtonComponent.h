@@ -5,9 +5,9 @@
 class ButtonComponent
 {
 protected:
-	Vector2 _position;
 	Vector2 _size; //width,height
 	std::string _text;
+	Vector2 _position;
 public:
 	ButtonComponent() {};
 	virtual void Draw();
