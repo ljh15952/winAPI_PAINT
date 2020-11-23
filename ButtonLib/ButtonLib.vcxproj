@@ -145,6 +145,7 @@
     <ClCompile Include="Frame.cpp" />
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="Misc.cpp" />
+    <ClCompile Include="RadioButton.cpp" />
     <ClCompile Include="Singleton.cpp" />
     <ClCompile Include="Toolbar.cpp" />
   </ItemGroup>
@@ -155,6 +156,7 @@
     <ClInclude Include="Frame.h" />
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="Misc.h" />
+    <ClInclude Include="RadioButton.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="Toolbar.h" />
   </ItemGroup>

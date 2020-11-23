@@ -1,6 +1,5 @@
 #pragma once
 #include "Misc.h"
-#include "Button.h"
 #include "Graphics.h"
 #include "Toolbar.h"
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
@@ -19,10 +18,11 @@ public:
 	virtual bool eventHandler(MyEvent e);
 	virtual void repaint();
 	virtual void Init() = 0;
-	virtual void buttonCallback(Button * b) = 0;
+	virtual void buttonCallback(ButtonComponent * b) = 0;
 
 	void invalidate();
 	Toolbar* _toolbar;
 private:
-	Button* _clickBt;
+	ButtonComponent* _clickBt;
+	ButtonComponent* _checkBt;
 };

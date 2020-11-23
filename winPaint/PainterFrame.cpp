@@ -4,20 +4,20 @@ void PainterFrame::Init()
 {
 	bt_state = Bt_state::null;
 
-	rectBt = new Button("사각형");
-	rectBt->setBounds(Vector2(10, 30), Vector2(100, 25));
+	rectBt = new RadioButton("사각형");
+	rectBt->setBounds(Vector2(10, 30), 17);
 	rectBt->Draw();
 
-	circleBt = new Button("원");
-	circleBt->setBounds(Vector2(120, 30), Vector2(100, 25));
+	circleBt = new RadioButton("원");
+	circleBt->setBounds(Vector2(120, 30), 17);
 	circleBt->Draw();
 
-	lineBt = new Button("선");
-	lineBt->setBounds(Vector2(230, 30), Vector2(100, 25));
+	lineBt = new RadioButton("선");
+	lineBt->setBounds(Vector2(230, 30), 17);
 	lineBt->Draw();
 
-	groupBt = new Button("그룹화");
-	groupBt->setBounds(Vector2(340, 30), Vector2(100, 25));
+	groupBt = new RadioButton("그룹화");
+	groupBt->setBounds(Vector2(340, 30), 17);
 	groupBt->Draw();
 
 	_toolbar->addComponent(rectBt);
@@ -45,7 +45,6 @@ bool PainterFrame::eventHandler(MyEvent e)
 		_endPos = e.getMousePos();
 		if (_clickFigure)
 		{
-			OutputDebugString(L"QWEQEW\n");
 			_clickFigure->addPosition(_endPos - _startPos);
 			invalidate();
 		}
@@ -131,7 +130,7 @@ Group* PainterFrame::setGroupMember(Group* g)
 }
 
 
-void PainterFrame::buttonCallback(Button* b)
+void PainterFrame::buttonCallback(ButtonComponent* b)
 {
 	if (b == rectBt)
 	{

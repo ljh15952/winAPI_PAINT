@@ -21,7 +21,7 @@ public:
 	void Init() override;
 	bool eventHandler(MyEvent e) override;
 	void repaint() override;
-	void buttonCallback(Button* b) override;
+	void buttonCallback(ButtonComponent* b) override;
 
 	Figure* MakeFigure();
 	Figure* FindFigure();
@@ -35,10 +35,10 @@ private:
 	Vector2 _endPos;
 
 	// 응용 버튼들
-	Button* rectBt;
-	Button* circleBt;
-	Button* lineBt;
-	Button* groupBt;
+	RadioButton* rectBt;
+	RadioButton* circleBt;
+	RadioButton* lineBt;
+	RadioButton* groupBt;
 
 	// 응용 변수
 	list<Figure*> _figures;

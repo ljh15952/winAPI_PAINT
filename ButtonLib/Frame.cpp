@@ -106,8 +106,7 @@ bool Frame::eventHandler(MyEvent e)
 		if (_clickBt = _toolbar->findClickBt(e.getMousePos()))
 		{
 			buttonCallback(_clickBt);
-			Graphics::GetInstance()->setPenColor(Graphics::RED);
-			_clickBt->Draw();
+			_clickBt->ClickEvent(e);
 			return true;
 		}
 	}
@@ -115,8 +114,9 @@ bool Frame::eventHandler(MyEvent e)
 	{
 		if (_clickBt)
 		{
-			Graphics::GetInstance()->setPenColor(Graphics::BLACK);
-			_clickBt->Draw();
+			_clickBt->ClickEvent(e);
+			_checkBt = _clickBt;
+			invalidate();
 			return true;
 		}
 	}
@@ -125,6 +125,7 @@ bool Frame::eventHandler(MyEvent e)
 
 void Frame::repaint() {
 	//모든 버튼들 다시 그려줌
+	_checkBt->setCheck();
 	Graphics::GetInstance()->setPenColor(Graphics::BLACK);
 	_toolbar->repaint();
 }

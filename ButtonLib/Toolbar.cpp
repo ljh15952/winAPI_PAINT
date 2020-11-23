@@ -16,7 +16,7 @@ void Toolbar::repaint()
 		it->Draw();
 }
 
-Button* Toolbar::findClickBt(Vector2 pos)
+ButtonComponent* Toolbar::findClickBt(Vector2 pos)
 {
 	for (auto it = _btlist.rbegin(); it != _btlist.rend(); it++)
 	{

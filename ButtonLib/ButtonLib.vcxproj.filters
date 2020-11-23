@@ -55,6 +55,9 @@
     <ClInclude Include="Container.h">
       <Filter>Container</Filter>
     </ClInclude>
+    <ClInclude Include="RadioButton.h">
+      <Filter>Button</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Button.cpp">
@@ -80,6 +83,9 @@
     </ClCompile>
     <ClCompile Include="Container.cpp">
       <Filter>Container</Filter>
+    </ClCompile>
+    <ClCompile Include="RadioButton.cpp">
+      <Filter>Button</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
