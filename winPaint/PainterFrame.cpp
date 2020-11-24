@@ -1,5 +1,5 @@
 #include "PainterFrame.h"
-
+#include <gdiplus.h>
 void PainterFrame::Init()
 {
 	bt_state = Bt_state::null;
@@ -51,6 +51,10 @@ bool PainterFrame::eventHandler(MyEvent e)
 	}
 	else if (e.isMouseDown())
 	{
+	//	COLORREF c = GetPixel(hDC_, e.getX(), e.getY());
+	//	Graphics::GetInstance()->setPenColor(c);
+	//	groupBt->Draw();
+
 		//paint start
 		_startPos = e.getMousePos();
 	}
