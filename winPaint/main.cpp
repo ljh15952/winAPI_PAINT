@@ -33,6 +33,8 @@ TODO
 undo redo 만들기
 메뉴 - 색선택,undo,redo, X버튼
 
-12-2 asdasdadssdasda
+객체들 해제
+
+12-2 
 
 */

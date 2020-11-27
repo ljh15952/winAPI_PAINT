@@ -8,5 +8,7 @@ public:
 	Rect(Vector2 s,Vector2 e);
 	void Draw() override;
 	bool isClick(Vector2 v) override;
+
+	void setBounds(Vector2 s, Vector2 e);
 };
 

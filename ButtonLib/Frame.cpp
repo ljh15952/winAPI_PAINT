@@ -82,6 +82,7 @@ Frame::Frame(std::wstring title, int width, int height) {
 
 
 void Frame::run() {
+
 	Graphics::GetInstance()->setGraphics(hDC_);
 	Init();
 

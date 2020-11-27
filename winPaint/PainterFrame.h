@@ -5,11 +5,15 @@
 #include "Line.h"
 #include "Group.h"
 #include "Toolbar.h"
+#include "Paste.h"
+#include "SelectRect.h"
 enum class Bt_state {
 	rect,
 	circle,
 	line,
 	group,
+	paste,
+	select,
 	null
 };
 
@@ -28,6 +32,8 @@ public:
 
 	Group * setGroup(Group* g);
 	Group* setGroupMember(Group* g);
+
+	void setSelectRect();
 private:
 	Bt_state bt_state;
 
@@ -40,9 +46,13 @@ private:
 	RadioButton* lineBt;
 	RadioButton* groupBt;
 
+	Button* selectBt;
+	Button* copyBt;
 	// 응용 변수
 	list<Figure*> _figures;
 	Figure* _clickFigure;
+
+	SelectRect* _selectRect;
 
 	//list<Figure*> _remove_figures;
 

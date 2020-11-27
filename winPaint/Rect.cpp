@@ -28,3 +28,9 @@ bool Rect::isClick(Vector2 p)
 	return false;
 }
 
+void Rect::setBounds(Vector2 s, Vector2 e)
+{
+	_position = Vector2(min(s.x, e.x), min(s.y, e.y));
+	_size = Vector2(abs(s.x - e.x), abs(s.y - e.y));
+}
+

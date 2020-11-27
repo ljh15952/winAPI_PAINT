@@ -5,9 +5,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Button">
-      <UniqueIdentifier>{b9aa1626-d5a2-4667-b6da-8fd48a975afe}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Event">
       <UniqueIdentifier>{834ac04c-6948-43d9-8b12-23e45e66ee41}</UniqueIdentifier>
     </Filter>
@@ -23,16 +20,19 @@
     <Filter Include="Toolbar">
       <UniqueIdentifier>{052d8cb0-9a21-4e71-9277-f554d8ac1d0b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Component">
-      <UniqueIdentifier>{ed0de0fd-b8a7-4667-a994-b4c0c64c4aa3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Container">
       <UniqueIdentifier>{c165b408-f60f-449a-acd0-ebc659ba8a8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ButtonComponent">
+      <UniqueIdentifier>{ed0de0fd-b8a7-4667-a994-b4c0c64c4aa3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ButtonComponent\Buttons">
+      <UniqueIdentifier>{b9aa1626-d5a2-4667-b6da-8fd48a975afe}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h">
-      <Filter>Button</Filter>
+      <Filter>ButtonComponent\Buttons</Filter>
     </ClInclude>
     <ClInclude Include="Misc.h">
       <Filter>Event</Filter>
@@ -50,18 +50,18 @@
       <Filter>Toolbar</Filter>
     </ClInclude>
     <ClInclude Include="ButtonComponent.h">
-      <Filter>Component</Filter>
+      <Filter>ButtonComponent</Filter>
     </ClInclude>
     <ClInclude Include="Container.h">
       <Filter>Container</Filter>
     </ClInclude>
     <ClInclude Include="RadioButton.h">
-      <Filter>Button</Filter>
+      <Filter>ButtonComponent\Buttons</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Button.cpp">
-      <Filter>Button</Filter>
+      <Filter>ButtonComponent\Buttons</Filter>
     </ClCompile>
     <ClCompile Include="Misc.cpp">
       <Filter>Event</Filter>
@@ -79,13 +79,13 @@
       <Filter>Toolbar</Filter>
     </ClCompile>
     <ClCompile Include="ButtonComponent.cpp">
-      <Filter>Component</Filter>
+      <Filter>ButtonComponent</Filter>
     </ClCompile>
     <ClCompile Include="Container.cpp">
       <Filter>Container</Filter>
     </ClCompile>
     <ClCompile Include="RadioButton.cpp">
-      <Filter>Button</Filter>
+      <Filter>ButtonComponent\Buttons</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

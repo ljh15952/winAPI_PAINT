@@ -3,7 +3,6 @@
 void Button::Draw()
 {
 	//Graphics::GetInstance()->setPenColor(Graphics::BLACK);
-	OutputDebugString(L"2\n");
 	ButtonComponent::Draw();
 	ButtonComponent::DrawBox();
 	ButtonComponent::Draw_Text();

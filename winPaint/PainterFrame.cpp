@@ -20,10 +20,25 @@ void PainterFrame::Init()
 	groupBt->setBounds(Vector2(340, 30), 17);
 	groupBt->Draw();
 
+	copyBt = new Button("복사");
+	copyBt->setBounds(Vector2(500, 30), Vector2(100, 30));
+	copyBt->Draw();
+
+	selectBt = new Button("선택");
+	selectBt->setBounds(Vector2(700, 30), Vector2(100, 30));
+	selectBt->Draw();
+	
+
 	_toolbar->addComponent(rectBt);
 	_toolbar->addComponent(circleBt);
 	_toolbar->addComponent(lineBt);
 	_toolbar->addComponent(groupBt);
+	_toolbar->addComponent(copyBt);
+	_toolbar->addComponent(selectBt);
+
+	_selectRect = new SelectRect;
+	_selectRect->setColor(Graphics::GRAY);
+	_selectRect->setVisible(false);
 }
 
 
@@ -33,23 +48,23 @@ bool PainterFrame::eventHandler(MyEvent e)
 	if (Frame::eventHandler(e))
 		return false;
 
-	if (e.isMouseDown() && e.isCtrlDown())
-	{
-		//move start
-		_startPos = e.getMousePos();
-		_clickFigure = FindFigure();
-	}
-	else if (e.isMouseUp() && e.isCtrlDown())
-	{
-		//move end
-		_endPos = e.getMousePos();
-		if (_clickFigure)
-		{
-			_clickFigure->addPosition(_endPos - _startPos);
-			invalidate();
-		}
-	}
-	else if (e.isMouseDown())
+	//if (e.isMouseDown() && e.isCtrlDown())
+	//{
+	//	//move start
+	//	_startPos = e.getMousePos();
+	//	_clickFigure = FindFigure();
+	//}
+	//else if (e.isMouseUp() && e.isCtrlDown())
+	//{
+	//	//move end
+	//	_endPos = e.getMousePos();
+	//	if (_clickFigure)
+	//	{
+	//		_clickFigure->addPosition(_endPos - _startPos);
+	//		invalidate();
+	//	}
+	//}
+	if (e.isMouseDown())
 	{
 	//	COLORREF c = GetPixel(hDC_, e.getX(), e.getY());
 	//	Graphics::GetInstance()->setPenColor(c);
@@ -57,17 +72,40 @@ bool PainterFrame::eventHandler(MyEvent e)
 
 		//paint start
 		_startPos = e.getMousePos();
+
+		if (_selectRect->isVisible()) //선택박스가 보이고 있는 경우
+		{
+			if (_selectRect->isClick(_startPos))
+			{
+				_selectRect->setMove(true);
+			}
+			else //박스 클릭안했을 경우
+			{
+				_selectRect->setVisible(false);
+				_selectRect->setMove(false);
+				_selectRect->ListClear();
+				invalidate();
+			}
+		}
 	}
 	else if (e.isMouseUp())
 	{
 		//paint end
 		_endPos = e.getMousePos();
 
-		Figure * nowFigure = MakeFigure();
-
-		if (nowFigure)
+		if (_selectRect->isMove()) //선택박스 클릭했었으면
 		{
-			nowFigure->Draw();
+			_selectRect->MoveAll(_endPos - _startPos); 
+			invalidate();
+			//박스 넣고 안에있는애들 멤버로 넣어주기
+		}
+		else
+		{
+			Figure* nowFigure = MakeFigure();
+			if (nowFigure)
+			{
+				nowFigure->Draw();
+			}
 		}
 	}
 
@@ -95,23 +133,30 @@ Figure * PainterFrame::MakeFigure()
 		fg->setColor(Graphics::BLUE);
 		_figures.push_back(fg);
 		break;
+	case Bt_state::select:
+		setSelectRect();
+		bt_state = Bt_state::null;
+		break;
 	case Bt_state::group:
 		fg = setGroup(setGroupMember(new Group(_startPos,_endPos)));
 		break;
+		//
+	case Bt_state::paste:
+		fg = setGroup(setGroupMember(new Paste(_startPos, _endPos)));
+		break;
+		//
 	}
 	return fg;
 }
 
-Figure* PainterFrame::FindFigure()
+void PainterFrame::setSelectRect()
 {
-	for (auto it = _figures.rbegin(); it != _figures.rend(); it++)
-	{
-		if ((*it)->isClick(_startPos))
-		{
-			return (*it);
-		}
-	}
-	return nullptr;
+	_selectRect->setBounds(_startPos, _endPos);
+	_selectRect->setVisible(true);
+	for (auto it : _figures)
+		_selectRect->isInside(it);
+	_selectRect->setBound();
+	_selectRect->Draw();
 }
 
 Group * PainterFrame::setGroup(Group* g)
@@ -133,6 +178,18 @@ Group* PainterFrame::setGroupMember(Group* g)
 	return g;
 }
 
+Figure* PainterFrame::FindFigure()
+{
+	for (auto it = _figures.rbegin(); it != _figures.rend(); it++)
+	{
+		if ((*it)->isClick(_startPos))
+		{
+			return (*it);
+		}
+	}
+	return nullptr;
+}
+
 
 void PainterFrame::buttonCallback(ButtonComponent* b)
 {
@@ -152,6 +209,14 @@ void PainterFrame::buttonCallback(ButtonComponent* b)
 	{
 		bt_state = Bt_state::group;
 	}
+	else if (b == copyBt)
+	{
+		bt_state = Bt_state::paste;
+	}
+	else if (b == selectBt)
+	{
+		bt_state = Bt_state::select;
+	}
 }
 
 
@@ -165,6 +230,8 @@ void PainterFrame::repaint()
 	{
 		it->Draw();
 	}
+	if (_selectRect->isVisible())
+		_selectRect->Draw();
 }
 
 

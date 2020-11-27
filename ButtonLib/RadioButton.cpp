@@ -5,7 +5,6 @@ void RadioButton::Draw()
 	ButtonComponent::Draw();
 	ButtonComponent::Draw_Text();
 	
-	OutputDebugString(L"1\n");
 	//Graphics::GetInstance()->setTransparent(true);
 	ButtonComponent::Draw_Radio();
 }
