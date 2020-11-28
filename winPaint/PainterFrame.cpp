@@ -48,23 +48,23 @@ bool PainterFrame::eventHandler(MyEvent e)
 	if (Frame::eventHandler(e))
 		return false;
 
-	//if (e.isMouseDown() && e.isCtrlDown())
-	//{
-	//	//move start
-	//	_startPos = e.getMousePos();
-	//	_clickFigure = FindFigure();
-	//}
-	//else if (e.isMouseUp() && e.isCtrlDown())
-	//{
-	//	//move end
-	//	_endPos = e.getMousePos();
-	//	if (_clickFigure)
-	//	{
-	//		_clickFigure->addPosition(_endPos - _startPos);
-	//		invalidate();
-	//	}
-	//}
-	if (e.isMouseDown())
+	if (e.isMouseDown() && e.isCtrlDown())
+	{
+		//move start
+		_startPos = e.getMousePos();
+		_clickFigure = FindFigure();
+	}
+	else if (e.isMouseUp() && e.isCtrlDown())
+	{
+		//move end
+		_endPos = e.getMousePos();
+		if (_clickFigure)
+		{
+			_clickFigure->addPosition(_endPos - _startPos);
+			invalidate();
+		}
+	}
+	else if (e.isMouseDown())
 	{
 	//	COLORREF c = GetPixel(hDC_, e.getX(), e.getY());
 	//	Graphics::GetInstance()->setPenColor(c);
@@ -142,7 +142,7 @@ Figure * PainterFrame::MakeFigure()
 		break;
 		//
 	case Bt_state::paste:
-		fg = setGroup(setGroupMember(new Paste(_startPos, _endPos)));
+		///nothing do here
 		break;
 		//
 	}
@@ -212,6 +212,15 @@ void PainterFrame::buttonCallback(ButtonComponent* b)
 	else if (b == copyBt)
 	{
 		bt_state = Bt_state::paste;
+		//paste here
+		if (_selectRect->isVisible())
+		{
+			list<Figure*> copys = _selectRect->copyAll(_endPos);
+			for (auto it : copys)
+			{
+				_figures.push_back(it);
+			}
+		}
 	}
 	else if (b == selectBt)
 	{

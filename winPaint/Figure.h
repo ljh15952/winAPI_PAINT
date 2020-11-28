@@ -9,10 +9,14 @@ protected:
 	Vector2 _position;
 	Vector2 _size;
 	Vector2 _distance;
+	bool _visible = false;
+	bool _ismove = false;
 
 	COLORREF _color;
 	COLORREF _fillcolor;
 	Figure* _parent;
+
+	Figure* _copything;
 public:
 	Figure() {};
 
@@ -26,7 +30,15 @@ public:
 	void setParent(Figure* p);
 	void setDistance(Vector2 to);
 
+	void setSize(Vector2 size) { _size = size; }
+	void setVisible(bool v) { _visible = v; }
+	bool isVisible() { return _visible; }
+	void setMove(bool v) { _ismove = v; }
+	bool isMove() { return _ismove; }
 	Vector2 getPosition() { return _position; }
 	Vector2 getSize() { return _size; }
+	Figure* getCopyThiing() { return _copything; }
+
+	virtual Figure* copyThis(int d) = 0;
 };
 

@@ -14,9 +14,6 @@
     <Filter Include="Group">
       <UniqueIdentifier>{37242739-fb67-468a-8de4-23cb8f122503}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Paste">
-      <UniqueIdentifier>{b25c0656-dc2d-4fb4-bf8a-40faf329c532}</UniqueIdentifier>
-    </Filter>
     <Filter Include="SelectRect">
       <UniqueIdentifier>{560d4da0-8402-4b2b-b97e-19e8c57a7dad}</UniqueIdentifier>
     </Filter>
@@ -41,9 +38,6 @@
     <ClCompile Include="Group.cpp">
       <Filter>Group</Filter>
     </ClCompile>
-    <ClCompile Include="Paste.cpp">
-      <Filter>Paste</Filter>
-    </ClCompile>
     <ClCompile Include="SelectRect.cpp">
       <Filter>SelectRect</Filter>
     </ClCompile>
@@ -66,9 +60,6 @@
     </ClInclude>
     <ClInclude Include="Group.h">
       <Filter>Group</Filter>
-    </ClInclude>
-    <ClInclude Include="Paste.h">
-      <Filter>Paste</Filter>
     </ClInclude>
     <ClInclude Include="SelectRect.h">
       <Filter>SelectRect</Filter>

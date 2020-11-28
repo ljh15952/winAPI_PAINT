@@ -34,3 +34,15 @@ void Rect::setBounds(Vector2 s, Vector2 e)
 	_size = Vector2(abs(s.x - e.x), abs(s.y - e.y));
 }
 
+Figure* Rect::copyThis(int d)
+{
+	Rect* c = new Rect();
+	c->_position = _position + Vector2(d,0);
+	c->_size = _size;
+	c->setColor(_color);
+	c->setFillColor(_fillcolor);
+	_copything = c;
+
+	return c;
+}
+

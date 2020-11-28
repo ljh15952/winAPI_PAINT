@@ -12,5 +12,7 @@ public:
 	void isInside(Figure* fg) override;
 	void addMember(Figure* f) override;
 	void setChildPos();
+
+	Figure* copyThis(int d) override;
 };
 

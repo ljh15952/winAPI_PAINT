@@ -44,3 +44,17 @@ void SelectRect::setBound()
 	_size = size - pos + 5;
 
 }
+
+//원본그룹 복사그룹 그룹화 -> 복사 하면 오류
+
+list<Figure*> SelectRect::copyAll(Vector2 v)
+{
+	list<Figure*> copys;
+
+	for (auto it : _members)
+	{
+		copys.push_back(it->copyThis(_size.x));
+	}
+	return copys;
+}
+

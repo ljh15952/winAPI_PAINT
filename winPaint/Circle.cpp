@@ -27,3 +27,16 @@ bool Circle::isClick(Vector2 v)
 	double d = sqrt((c_x - v.x) * (c_x - v.x) + (c_y - v.y) * (c_y - v.y));
 	return (d < _size.x / 2);
 }
+
+Figure* Circle::copyThis(int d)
+{
+	Circle* c = new Circle();
+	c->_position = _position + Vector2(d, 0);
+	c->_size = _size;
+	c->setColor(_color);
+	c->setFillColor(_fillcolor);
+
+	_copything = c;
+
+	return c;
+}

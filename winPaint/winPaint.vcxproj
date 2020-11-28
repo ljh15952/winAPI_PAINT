@@ -146,7 +146,6 @@
     <ClCompile Include="Line.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PainterFrame.cpp" />
-    <ClCompile Include="Paste.cpp" />
     <ClCompile Include="Rect.cpp" />
     <ClCompile Include="SelectRect.cpp" />
   </ItemGroup>
@@ -156,7 +155,6 @@
     <ClInclude Include="Group.h" />
     <ClInclude Include="Line.h" />
     <ClInclude Include="PainterFrame.h" />
-    <ClInclude Include="Paste.h" />
     <ClInclude Include="Rect.h" />
     <ClInclude Include="SelectRect.h" />
   </ItemGroup>

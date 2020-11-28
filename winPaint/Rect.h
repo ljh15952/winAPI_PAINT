@@ -10,5 +10,7 @@ public:
 	bool isClick(Vector2 v) override;
 
 	void setBounds(Vector2 s, Vector2 e);
+
+	Figure* copyThis(int d) override;
 };
 

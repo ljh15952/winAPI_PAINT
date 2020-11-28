@@ -4,7 +4,6 @@
 
 void Group::Draw()
 {
-
 	Rect::Draw();
 }
 
@@ -30,4 +29,21 @@ void Group::setChildPos()
 	{
 		it->setDistance(_position);
 	}
+}
+
+Figure* Group::copyThis(int d)
+{
+	Group* c = new Group();
+	c->setPosition(_position + Vector2(d, 0));
+	c->setSize(_size);
+	c->setColor(_color);
+	c->setFillColor(_fillcolor);
+
+	for (auto it : _members)
+	{
+		c->addMember(it->getCopyThiing());
+		c->setChildPos();
+	}
+	_copything = c;
+	return c;
 }

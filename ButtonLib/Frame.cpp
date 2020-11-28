@@ -76,6 +76,7 @@ Frame::Frame(std::wstring title, int width, int height) {
 	SetFocus(hWnd_);
 	hDC_ = GetDC(hWnd_);
 	_clickBt = nullptr;
+	_checkBt = nullptr;
 	_toolbar = new Toolbar;
 }
 
@@ -126,7 +127,10 @@ bool Frame::eventHandler(MyEvent e)
 
 void Frame::repaint() {
 	//모든 버튼들 다시 그려줌
-	_checkBt->setCheck();
+	if (_checkBt)
+	{
+		_checkBt->setCheck();
+	}
 	Graphics::GetInstance()->setPenColor(Graphics::BLACK);
 	_toolbar->repaint();
 }

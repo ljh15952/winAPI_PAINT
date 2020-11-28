@@ -16,3 +16,15 @@ void Line::Draw()
 
 	Graphics::GetInstance()->drawLine(_position, _size);
 }
+
+Figure* Line::copyThis(int d)
+{
+	Line* c = new Line();
+	c->_position = _position + Vector2(d, 0);
+	c->_size = _size;
+	c->setColor(_color);
+	c->setFillColor(_fillcolor);
+	_copything = c;
+
+	return c;
+}
