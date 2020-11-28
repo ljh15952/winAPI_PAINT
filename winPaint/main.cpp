@@ -19,7 +19,7 @@ TODO
  Radio Button 과 이들을 묶는 RadioGroup 을 만들되 composite 패턴을 이용하여 conatainer 를 이용한다.
  
 
-  도형(그룹 포함)의 복사
+  도형(그룹 포함)의 복사 O
   
   이벤트 처리에서 Listener를 활용
 
@@ -27,7 +27,7 @@ TODO
 
 - 기타 자신이 객체지향적으로 구현한 내용
 
-이동도 버튼만들기 O
+이동도 버튼만들기 X
 색깔 팔레트 만들기
 스포이드 만들기
 undo redo 만들기

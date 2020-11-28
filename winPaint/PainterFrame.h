@@ -13,6 +13,7 @@ enum class Bt_state {
 	group,
 	paste,
 	select,
+	move,
 	null
 };
 
@@ -44,6 +45,7 @@ private:
 	RadioButton* circleBt;
 	RadioButton* lineBt;
 	RadioButton* groupBt;
+	RadioButton* moveBt;
 
 	Button* selectBt;
 	Button* copyBt;

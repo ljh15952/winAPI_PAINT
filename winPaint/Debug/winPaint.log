@@ -1,3 +1,2 @@
-﻿  Group.cpp
-C:\Users\ljh15\source\repos\winPaint\winPaint\Group.cpp(37,37): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+﻿  PainterFrame.cpp
   winPaint.vcxproj -> C:\Users\ljh15\source\repos\winPaint\Debug\winPaint.exe

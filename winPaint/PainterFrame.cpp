@@ -27,6 +27,10 @@ void PainterFrame::Init()
 	selectBt = new Button("선택");
 	selectBt->setBounds(Vector2(700, 30), Vector2(100, 30));
 	selectBt->Draw();
+
+	moveBt = new RadioButton("이동");
+	moveBt->setBounds(Vector2(440, 30), 17);
+	moveBt->Draw();
 	
 
 	_toolbar->addComponent(rectBt);
@@ -35,6 +39,7 @@ void PainterFrame::Init()
 	_toolbar->addComponent(groupBt);
 	_toolbar->addComponent(copyBt);
 	_toolbar->addComponent(selectBt);
+	_toolbar->addComponent(moveBt);
 
 	_selectRect = new SelectRect;
 	_selectRect->setColor(Graphics::GRAY);
@@ -48,21 +53,27 @@ bool PainterFrame::eventHandler(MyEvent e)
 	if (Frame::eventHandler(e))
 		return false;
 
-	if (e.isMouseDown() && e.isCtrlDown())
+	if (e.isMouseDown() && bt_state == Bt_state::move)
 	{
 		//move start
 		_startPos = e.getMousePos();
 		_clickFigure = FindFigure();
+
+		if (_selectRect->isVisible()) //선택박스가 보이고 있는 경우
+		{
+			_selectRect->setVisible(false);
+			_selectRect->setMove(false);
+			_selectRect->ListClear();
+			invalidate();
+		}
 	}
-	else if (e.isMouseUp() && e.isCtrlDown())
+	else if (e.isMouseUp() && bt_state == Bt_state::move)
 	{
 		//move end
 		_endPos = e.getMousePos();
 		if (_clickFigure)
-		{
 			_clickFigure->addPosition(_endPos - _startPos);
-			invalidate();
-		}
+		invalidate();
 	}
 	else if (e.isMouseDown())
 	{
@@ -75,9 +86,9 @@ bool PainterFrame::eventHandler(MyEvent e)
 
 		if (_selectRect->isVisible()) //선택박스가 보이고 있는 경우
 		{
-			if (_selectRect->isClick(_startPos))
+			if (_selectRect->isClick(_startPos)) //선택박스 클릭했으면
 			{
-				_selectRect->setMove(true);
+				_selectRect->setMove(true); //움직이기 가능
 			}
 			else //박스 클릭안했을 경우
 			{
@@ -225,6 +236,10 @@ void PainterFrame::buttonCallback(ButtonComponent* b)
 	else if (b == selectBt)
 	{
 		bt_state = Bt_state::select;
+	}
+	else if (b == moveBt)
+	{
+		bt_state = Bt_state::move;
 	}
 }
 
