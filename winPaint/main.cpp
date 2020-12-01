@@ -33,6 +33,10 @@ TODO
 undo redo 만들기
 메뉴 - 색선택,undo,redo, X버튼
 
+_painterframe figures 리스트 객체 해제
+->remove했을때
+->그룹화 했을 때
+
 객체들 해제
 
 12-2 

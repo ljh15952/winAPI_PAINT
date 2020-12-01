@@ -32,6 +32,9 @@ void PainterFrame::Init()
 	moveBt->setBounds(Vector2(440, 30), 17);
 	moveBt->Draw();
 	
+	removeBt = new Button("»èÁ¦");
+	removeBt->setBounds(Vector2(800, 30), Vector2(100, 30));
+	removeBt->Draw();
 
 	_toolbar->addComponent(rectBt);
 	_toolbar->addComponent(circleBt);
@@ -40,6 +43,8 @@ void PainterFrame::Init()
 	_toolbar->addComponent(copyBt);
 	_toolbar->addComponent(selectBt);
 	_toolbar->addComponent(moveBt);
+	_toolbar->addComponent(removeBt);
+
 
 	_selectRect = new SelectRect;
 	_selectRect->setColor(Graphics::GRAY);
@@ -115,6 +120,7 @@ bool PainterFrame::eventHandler(MyEvent e)
 			Figure* nowFigure = MakeFigure();
 			if (nowFigure)
 			{
+				nowFigure->setVisible(true);
 				nowFigure->Draw();
 			}
 		}
@@ -156,7 +162,11 @@ Figure * PainterFrame::MakeFigure()
 		///nothing do here
 		break;
 		//
+	case Bt_state::remove:
+
+		break;
 	}
+
 	return fg;
 }
 
@@ -229,6 +239,7 @@ void PainterFrame::buttonCallback(ButtonComponent* b)
 			list<Figure*> copys = _selectRect->copyAll(_endPos);
 			for (auto it : copys)
 			{
+				it->setVisible(true);
 				_figures.push_back(it);
 			}
 		}
@@ -240,6 +251,14 @@ void PainterFrame::buttonCallback(ButtonComponent* b)
 	else if (b == moveBt)
 	{
 		bt_state = Bt_state::move;
+	}
+	else if (b == removeBt)
+	{
+		bt_state = Bt_state::remove;
+		if (_selectRect->isVisible())
+		{
+			_selectRect->RemoveAll();
+		}
 	}
 }
 

@@ -14,6 +14,7 @@ enum class Bt_state {
 	paste,
 	select,
 	move,
+	remove,
 	null
 };
 
@@ -49,6 +50,8 @@ private:
 
 	Button* selectBt;
 	Button* copyBt;
+	Button* removeBt;
+
 	// 응용 변수
 	list<Figure*> _figures;
 	Figure* _clickFigure;

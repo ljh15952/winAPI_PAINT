@@ -1,4 +1,13 @@
-﻿  Frame.cpp
+﻿  Button.cpp
+  ButtonComponent.cpp
+C:\Users\ljh15\source\repos\winPaint\ButtonLib\ButtonComponent.cpp(15,54): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Container.cpp
+  Frame.cpp
 C:\Users\ljh15\source\repos\winPaint\ButtonLib\Frame.cpp(90,48): warning C4302: '형식 캐스트': 'LPWSTR'에서 'WORD'(으)로 잘립니다.
+  RadioButton.cpp
+C:\Users\ljh15\source\repos\winPaint\ButtonLib\RadioButton.cpp(14,47): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ljh15\source\repos\winPaint\ButtonLib\RadioButton.cpp(14,42): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Toolbar.cpp
+  코드를 생성하고 있습니다...
 C:\Users\ljh15\source\repos\winPaint\ButtonLib\Frame.cpp(44): warning C4715: 'WndProc': 모든 제어 경로에서 값을 반환하지는 않습니다.
   ButtonLib.vcxproj -> C:\Users\ljh15\source\repos\winPaint\Debug\ButtonLib.lib

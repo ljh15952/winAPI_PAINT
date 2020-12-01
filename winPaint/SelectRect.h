@@ -13,6 +13,7 @@ public:
 	SelectRect(Vector2 s, Vector2 e) : Rect(s, e) {};
 
 	void MoveAll(Vector2 p);
+	void RemoveAll();
 	void ListClear();
 
 	virtual void isInside(Figure* fg);

@@ -8,6 +8,8 @@ Rect::Rect(Vector2 s, Vector2 e)
 
 void Rect::Draw()
 {
+	if (!_visible)
+		return;
 	Graphics::GetInstance()->setPenColor(_color);
 	Graphics::GetInstance()->setTransparent(true);
 

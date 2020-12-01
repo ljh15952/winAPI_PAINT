@@ -15,7 +15,7 @@ public:
 	void Draw_Text();
 	void Draw_Radio();
 
-	virtual void setCheck() = 0;
+	virtual void setCheck() {};
 	virtual void Draw();
 	virtual void ClickEvent(MyEvent e);
 	virtual void setBounds(Vector2 pos, Vector2 size) ;

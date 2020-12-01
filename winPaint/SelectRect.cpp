@@ -9,6 +9,14 @@ void SelectRect::MoveAll(Vector2 p)
 	}
 }
 
+void SelectRect::RemoveAll()
+{
+	for (auto it : _members)
+	{
+		it->setVisible(false);
+	}
+}
+
 void SelectRect::ListClear()
 {
 	_members.clear();

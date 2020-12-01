@@ -8,6 +8,8 @@ Line::Line(Vector2 v1, Vector2 v2)
 
 void Line::Draw()
 {
+	if (!_visible)
+		return;
 	Graphics::GetInstance()->setPenColor(_color);
 	Graphics::GetInstance()->setTransparent(true);
 

@@ -2,7 +2,7 @@
 #include "Misc.h"
 #include "Button.h"
 #include "RadioButton.h"
-class Container
+class Container : public ButtonComponent
 {
 public:
 	list<ButtonComponent*> _btlist;
