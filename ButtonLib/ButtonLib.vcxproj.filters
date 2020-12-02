@@ -29,6 +29,9 @@
     <Filter Include="ButtonComponent\Buttons">
       <UniqueIdentifier>{b9aa1626-d5a2-4667-b6da-8fd48a975afe}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Menubar">
+      <UniqueIdentifier>{98f4207a-1a7d-4455-ae33-2048adac3ef3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h">
@@ -58,6 +61,9 @@
     <ClInclude Include="RadioButton.h">
       <Filter>ButtonComponent\Buttons</Filter>
     </ClInclude>
+    <ClInclude Include="Menubar.h">
+      <Filter>Menubar</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Button.cpp">
@@ -86,6 +92,9 @@
     </ClCompile>
     <ClCompile Include="RadioButton.cpp">
       <Filter>ButtonComponent\Buttons</Filter>
+    </ClCompile>
+    <ClCompile Include="Menubar.cpp">
+      <Filter>Menubar</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -8,7 +8,6 @@ public:
 	void Draw() override;
 	void setBounds(Vector2 pos, Vector2 size) override;
 	bool isClick(Vector2 v) override;
-	void ClickEvent(MyEvent e)override;
 	void setCheck() override {};
 };
 

@@ -20,19 +20,22 @@ void ButtonComponent::Draw()
 	Graphics::GetInstance()->setTransparent(true);
 }
 
-void ButtonComponent::ClickEvent(MyEvent e)
+void ButtonComponent::mouseDownEvent()
 {
-	if (e.isMouseDown())
-	{
-		Graphics::GetInstance()->setPenColor(Graphics::RED);
-		setCheck();
-		Draw();
-	}
-	else if (e.isMouseUp())
-	{
-		Graphics::GetInstance()->setPenColor(Graphics::BLACK);
-		Draw();
-	}
+	Graphics::GetInstance()->setPenColor(Graphics::RED);
+	setCheck();
+	Draw();
+}
+
+void ButtonComponent::mouseUpEvent()
+{
+	Graphics::GetInstance()->setPenColor(Graphics::BLACK);
+	Draw();
+}
+
+void ButtonComponent::setVisible(bool b)
+{
+	_visible = b;
 }
 
 void ButtonComponent::setBounds(Vector2 pos, Vector2 size)
@@ -44,6 +47,8 @@ void ButtonComponent::setBounds(Vector2 pos, Vector2 size)
 
 bool ButtonComponent::isClick(Vector2 v)
 {
+	if (!_visible)
+		return false;
 	if (_position.x <= v.x &&
 		_position.x + _size.x >= v.x &&
 		_position.y <= v.y &&

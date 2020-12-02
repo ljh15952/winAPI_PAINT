@@ -78,6 +78,7 @@ Frame::Frame(std::wstring title, int width, int height) {
 	_clickBt = nullptr;
 	_checkBt = nullptr;
 	_toolbar = new Toolbar;
+	_menubar = new Menubar;
 }
 
 
@@ -105,10 +106,15 @@ bool Frame::eventHandler(MyEvent e)
 	//버튼을 눌렀으면 true반환
 	if (e.isMouseDown())
 	{
-		if (_clickBt = _toolbar->findClickBt(e.getMousePos()))
+		_clickBt1 = _toolbar->findClickBt(e.getMousePos());
+		_clickBt2 = _menubar->findClickBt(e.getMousePos());
+
+		_clickBt = (_clickBt1) ? _clickBt1 : _clickBt2;
+
+		if (_clickBt)
 		{
 			buttonCallback(_clickBt);
-			_clickBt->ClickEvent(e);
+			_clickBt->mouseDownEvent();
 			return true;
 		}
 	}
@@ -116,7 +122,7 @@ bool Frame::eventHandler(MyEvent e)
 	{
 		if (_clickBt)
 		{
-			_clickBt->ClickEvent(e);
+			_clickBt->mouseUpEvent();
 			_checkBt = _clickBt;
 			invalidate();
 			return true;
@@ -133,6 +139,7 @@ void Frame::repaint() {
 	}
 	Graphics::GetInstance()->setPenColor(Graphics::BLACK);
 	_toolbar->repaint();
+	_menubar->repaint();
 }
 
 void Frame::invalidate()

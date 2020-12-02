@@ -2,6 +2,8 @@
 
 void Button::Draw()
 {
+	if (!_visible)
+		return;
 	//Graphics::GetInstance()->setPenColor(Graphics::BLACK);
 	ButtonComponent::Draw();
 	ButtonComponent::DrawBox();
@@ -18,7 +20,4 @@ bool Button::isClick(Vector2 v)
 	return ButtonComponent::isClick(v);
 }
 
-void Button::ClickEvent(MyEvent e)
-{
-	ButtonComponent::ClickEvent(e);
-}
+

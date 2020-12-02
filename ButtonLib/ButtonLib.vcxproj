@@ -144,6 +144,7 @@
     <ClCompile Include="Container.cpp" />
     <ClCompile Include="Frame.cpp" />
     <ClCompile Include="Graphics.cpp" />
+    <ClCompile Include="Menubar.cpp" />
     <ClCompile Include="Misc.cpp" />
     <ClCompile Include="RadioButton.cpp" />
     <ClCompile Include="Singleton.cpp" />
@@ -155,6 +156,7 @@
     <ClInclude Include="Container.h" />
     <ClInclude Include="Frame.h" />
     <ClInclude Include="Graphics.h" />
+    <ClInclude Include="Menubar.h" />
     <ClInclude Include="Misc.h" />
     <ClInclude Include="RadioButton.h" />
     <ClInclude Include="Singleton.h" />

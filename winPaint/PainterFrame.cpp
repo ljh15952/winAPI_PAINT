@@ -5,46 +5,56 @@ void PainterFrame::Init()
 	bt_state = Bt_state::null;
 
 	rectBt = new RadioButton("사각형");
-	rectBt->setBounds(Vector2(10, 30), 17);
+	rectBt->setBounds(Vector2(130, 5), 17);
 	rectBt->Draw();
 
 	circleBt = new RadioButton("원");
-	circleBt->setBounds(Vector2(120, 30), 17);
+	circleBt->setBounds(Vector2(220, 5), 17);
 	circleBt->Draw();
 
 	lineBt = new RadioButton("선");
-	lineBt->setBounds(Vector2(230, 30), 17);
+	lineBt->setBounds(Vector2(310, 5), 17);
 	lineBt->Draw();
 
 	groupBt = new RadioButton("그룹화");
-	groupBt->setBounds(Vector2(340, 30), 17);
+	groupBt->setBounds(Vector2(400, 5), 17);
 	groupBt->Draw();
 
+	moveBt = new RadioButton("이동");
+	moveBt->setBounds(Vector2(490, 5), 17);
+	moveBt->Draw();
+
 	copyBt = new Button("복사");
-	copyBt->setBounds(Vector2(500, 30), Vector2(100, 30));
+	copyBt->setBounds(Vector2(5, 45), Vector2(100, 30));
+	copyBt->setVisible(false);
 	copyBt->Draw();
 
 	selectBt = new Button("선택");
-	selectBt->setBounds(Vector2(700, 30), Vector2(100, 30));
+	selectBt->setBounds(Vector2(5, 85), Vector2(100, 30));
+	selectBt->setVisible(false);
 	selectBt->Draw();
 
-	moveBt = new RadioButton("이동");
-	moveBt->setBounds(Vector2(440, 30), 17);
-	moveBt->Draw();
 	
 	removeBt = new Button("삭제");
-	removeBt->setBounds(Vector2(800, 30), Vector2(100, 30));
+	removeBt->setBounds(Vector2(5, 125), Vector2(100, 30));
+	removeBt->setVisible(false);
 	removeBt->Draw();
 
 	_toolbar->addComponent(rectBt);
 	_toolbar->addComponent(circleBt);
 	_toolbar->addComponent(lineBt);
 	_toolbar->addComponent(groupBt);
-	_toolbar->addComponent(copyBt);
-	_toolbar->addComponent(selectBt);
 	_toolbar->addComponent(moveBt);
-	_toolbar->addComponent(removeBt);
 
+	_menubar->addComponent(copyBt);
+	_menubar->addComponent(selectBt);
+	_menubar->addComponent(removeBt);
+
+	//메뉴바 사용
+	menuBt = new Button("메뉴");
+	menuBt->setBounds(Vector2(5, 5), Vector2(100, 30));
+	menuBt->Draw();
+	_toolbar->addComponent(menuBt);
 
 	_selectRect = new SelectRect;
 	_selectRect->setColor(Graphics::GRAY);
@@ -165,7 +175,11 @@ Figure * PainterFrame::MakeFigure()
 	case Bt_state::remove:
 
 		break;
+	case Bt_state::menu:
+	
+		break;
 	}
+
 
 	return fg;
 }
@@ -178,6 +192,14 @@ void PainterFrame::setSelectRect()
 		_selectRect->isInside(it);
 	_selectRect->setBound();
 	_selectRect->Draw();
+}
+
+void PainterFrame::removeFigure(SelectRect* r)
+{
+	for (auto it : r->getMembers())
+	{
+		_figures.remove(it);
+	}
 }
 
 Group * PainterFrame::setGroup(Group* g)
@@ -196,6 +218,9 @@ Group* PainterFrame::setGroupMember(Group* g)
 {
 	for (auto it : _figures)
 		g->isInside(it);
+
+//	removeFigure(g);
+
 	return g;
 }
 
@@ -243,10 +268,14 @@ void PainterFrame::buttonCallback(ButtonComponent* b)
 				_figures.push_back(it);
 			}
 		}
+		_menubar->setMenuVisible();
+		invalidate();
 	}
 	else if (b == selectBt)
 	{
 		bt_state = Bt_state::select;
+		_menubar->setMenuVisible();
+		invalidate();
 	}
 	else if (b == moveBt)
 	{
@@ -258,7 +287,16 @@ void PainterFrame::buttonCallback(ButtonComponent* b)
 		if (_selectRect->isVisible())
 		{
 			_selectRect->RemoveAll();
+			removeFigure(_selectRect);
 		}
+		_menubar->setMenuVisible();
+		invalidate();
+	}
+	else if (b == menuBt)
+	{
+		bt_state = Bt_state::menu;
+		_menubar->setMenuVisible();
+		invalidate();
 	}
 }
 

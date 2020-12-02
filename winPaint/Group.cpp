@@ -4,7 +4,7 @@
 
 void Group::Draw()
 {
-	Rect::Draw();
+	SelectRect::Draw();
 }
 
 void Group::setBound()

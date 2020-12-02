@@ -2,6 +2,7 @@
 #include "Misc.h"
 #include "Graphics.h"
 #include "Toolbar.h"
+#include "Menubar.h"
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 class Frame {
@@ -22,7 +23,11 @@ public:
 
 	void invalidate();
 	Toolbar* _toolbar;
+	Menubar* _menubar;
 private:
 	ButtonComponent* _clickBt;
+	ButtonComponent* _clickBt1;
+	ButtonComponent* _clickBt2;
+
 	ButtonComponent* _checkBt;
 };

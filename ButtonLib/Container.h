@@ -6,6 +6,9 @@ class Container : public ButtonComponent
 {
 public:
 	list<ButtonComponent*> _btlist;
-	void addComponent(ButtonComponent* b) { _btlist.push_back(b); };
+
+	ButtonComponent* findClickBt(Vector2 pos);
+	void addComponent(ButtonComponent* b);
+	void repaint();
 };
 

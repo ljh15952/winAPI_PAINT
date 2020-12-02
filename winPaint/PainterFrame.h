@@ -15,6 +15,7 @@ enum class Bt_state {
 	select,
 	move,
 	remove,
+	menu,
 	null
 };
 
@@ -35,6 +36,7 @@ public:
 	Group* setGroupMember(Group* g);
 
 	void setSelectRect();
+	void removeFigure(SelectRect* r);
 private:
 	Bt_state bt_state;
 
@@ -51,6 +53,8 @@ private:
 	Button* selectBt;
 	Button* copyBt;
 	Button* removeBt;
+
+	Button* menuBt;
 
 	// 응용 변수
 	list<Figure*> _figures;

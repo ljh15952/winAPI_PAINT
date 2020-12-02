@@ -18,10 +18,11 @@ public:
 
 class MyEvent {
 private:
+public:
+	MyEvent() {}
 	UINT msg_;
 	WPARAM wParam_;
 	LPARAM lParam_;
-public:
 	MyEvent(UINT msg, WPARAM wParam, LPARAM lParam);
 	bool isMouseDown();
 	bool isMouseUp();

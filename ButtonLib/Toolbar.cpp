@@ -10,20 +10,3 @@
 */
 
 
-void Toolbar::repaint()
-{
-	for (auto it : _btlist)
-		it->Draw();
-}
-
-ButtonComponent* Toolbar::findClickBt(Vector2 pos)
-{
-	for (auto it = _btlist.rbegin(); it != _btlist.rend(); it++)
-	{
-		if ((*it)->isClick(pos))
-		{
-			return (*it);
-		}
-	}
-	return nullptr;
-}

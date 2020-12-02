@@ -2,6 +2,8 @@
 
 void RadioButton::Draw()
 {
+	if (!_visible)
+		return;
 	ButtonComponent::Draw();
 	ButtonComponent::Draw_Text();
 	
@@ -25,9 +27,4 @@ void RadioButton::setCheck()
 bool RadioButton::isClick(Vector2 v)
 {
 	return ButtonComponent::isClick(v);
-}
-
-void RadioButton::ClickEvent(MyEvent e)
-{
-	ButtonComponent::ClickEvent(e);
 }

@@ -1,5 +1,14 @@
 #include "SelectRect.h"
 
+void SelectRect::Draw()
+{
+	Rect::Draw();
+	for (auto it : _members)
+	{
+		it->Draw();
+	}
+}
+
 void SelectRect::MoveAll(Vector2 p)
 {
 	addPosition(p);
@@ -52,8 +61,6 @@ void SelectRect::setBound()
 	_size = size - pos + 5;
 
 }
-
-//원본그룹 복사그룹 그룹화 -> 복사 하면 오류
 
 list<Figure*> SelectRect::copyAll(Vector2 v)
 {
